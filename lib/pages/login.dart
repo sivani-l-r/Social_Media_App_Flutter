@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:social_media_app/helper/displaymessage.dart';
 import 'package:social_media_app/pages/mainscreen.dart';
 import 'package:social_media_app/pages/signup.dart';
 
@@ -7,8 +10,31 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     TextEditingController emailControl = TextEditingController();
     TextEditingController passwordControl = TextEditingController();
+
+    Future<void> loginUser()
+    async {
+      showDialog(context: context, 
+      builder: (context) => Center(
+        child: Lottie.network('https://lottie.host/7771e78d-39dc-40f9-b271-9c75d264d0e8/bgSKwTFkza.json')));
+      
+      try
+      {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailControl.text, password: passwordControl.text);
+
+        if(context.mounted) Navigator.pop(context);
+        Navigator.push(context, 
+                    MaterialPageRoute(builder: (context) => MainPage())
+                    );
+      } on FirebaseAuthException catch(e)
+      {
+        Navigator.pop(context);
+        displayMessageToUser(e.code, context);
+      }
+    }
+    
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
@@ -44,6 +70,7 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 30,),                
                 child: TextField(
                   controller: passwordControl,
+                  obscureText: true,
                   decoration: InputDecoration(
                     hintText: 'PASSWORD',
                     hintStyle: TextStyle(color: Theme.of(context).colorScheme.secondary),
@@ -78,9 +105,7 @@ class LoginPage extends StatelessWidget {
                 width: 200,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, 
-                    MaterialPageRoute(builder: (context) => MainPage())
-                    );
+                    loginUser();
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(Theme.of(context).colorScheme.inversePrimary),
