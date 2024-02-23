@@ -57,6 +57,8 @@ class ProfilePage extends StatelessWidget {
   }
 }
 
+
+
 class ProfilePageDetails extends StatelessWidget {
   final String email;
   final String username;
@@ -70,39 +72,42 @@ class ProfilePageDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ListTile(
-              title: Text(
-                'Username',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.0,
+      
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            
+            children: [
+              CircleAvatar(
+                radius: 80,
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                child: Icon(
+                  Icons.person,
+                  size: 100,
                 ),
               ),
-              subtitle: Text(
+              SizedBox(height: 20),
+              Text(
                 username,
-                style: TextStyle(fontSize: 16.0),
-              ),
-            ),
-            Divider(), // Adding a divider for visual separation
-            ListTile(
-              title: Text(
-                'Email',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16.0,
+                  fontSize: 24.0,
+                  color: Theme.of(context).colorScheme.secondary,
                 ),
               ),
-              subtitle: Text(
+              SizedBox(height: 10),
+              Text(
                 email,
-                style: TextStyle(fontSize: 16.0),
+                style: TextStyle(
+                  fontSize: 18.0,
+                  color: Theme.of(context).colorScheme.secondary.withOpacity(0.3),
+                ),
               ),
-            ),
-          ],
+              
+            ],
+          ),
         ),
       ),
     );

@@ -41,12 +41,48 @@ class UsersPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final user = users[index];
 
-                return ListTile(
-                  title: Text(user['username']),
-                  subtitle: Text(user['email']),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                  child: Card(
+                    elevation: 4.0,
+                    color:  Theme.of(context).colorScheme.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(34),
+                    ),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.all(16.0),
+                      title: Text(
+                        user['username'],
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      subtitle: Text(
+                        user['email'],
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        icon: Icon(
+                          Icons.person_add_alt,
+                          color: Theme.of(context).colorScheme.secondary,
+                        ),
+                        onPressed: () {
+                          // Add functionality for more options
+                        },
+                      ),
+                      onTap: () {
+                        // Add functionality for tapping on the list tile
+                      },
+                    ),
+                  ),
                 );
               },
             );
+
           }
           else
           {
