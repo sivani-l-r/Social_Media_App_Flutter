@@ -12,10 +12,10 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         title: Text('Home'),
+        centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.primary,
         actions: [
           IconButton(
@@ -24,6 +24,7 @@ class MainPage extends StatelessWidget {
           
         ],
       ),
+      drawer: Drawer(),
     );
   }
 }
