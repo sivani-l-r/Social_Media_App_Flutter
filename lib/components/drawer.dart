@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:social_media_app/pages/profile.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -23,7 +24,23 @@ class DrawerWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 16.0),
                 child: ListTile(
                   leading: Icon(Icons.person_2_rounded),
+                  title: Text("H O M E"),
+                  onTap: () {
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/home');
+                    },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: ListTile(
+                  leading: Icon(Icons.person_2_rounded),
                   title: Text("P R O F I L E"),
+                  onTap: () {
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/profile');
+                  
+                    },
                 ),
               ),
               
@@ -32,6 +49,13 @@ class DrawerWidget extends StatelessWidget {
                 child: ListTile(
                   leading: Icon(Icons.favorite),
                   title: Text("L I K E S"),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, '/likes');
+
+                    
+                
+                  },
                 ),
               ),
               Padding(
@@ -39,6 +63,11 @@ class DrawerWidget extends StatelessWidget {
                 child: ListTile(
                   leading: Icon(Icons.group),
                   title: Text("U S E R S"),
+                  onTap: () {
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/users');
+                  
+                    },
                 ),
               ),
             ],
