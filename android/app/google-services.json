@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "939843715722",
+    "project_id": "social-media-app-bab63",
+    "storage_bucket": "social-media-app-bab63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939843715722:android:4481aa772c2b791042a373",
+        "android_client_info": {
+          "package_name": "com.example.social_media_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0XokEnZEbBQagSlQODaP0Ha_07iAOt1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
