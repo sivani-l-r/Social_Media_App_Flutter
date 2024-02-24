@@ -16,7 +16,7 @@ class AuthPage extends StatelessWidget {
         {
           if(snapshot.hasData)
           {
-            return const MainPage();
+            return MainPage();
           }
           else{
             return const StartPage();
