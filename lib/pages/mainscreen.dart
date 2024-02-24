@@ -23,6 +23,13 @@ class MainPage extends StatelessWidget {
     
   }
 
+  void likeMessage(String postId) {
+  database.addPostToLikes(postId);
+  }
+
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,7 +87,7 @@ class MainPage extends StatelessWidget {
                   return const Center(
                     child: Padding(
                       padding: EdgeInsets.all(25),
-                      child: Text("No posts.. share somethingg!"),
+                      child: Text("No posts.. share something!"),
                     ),
                   );
                 }
@@ -102,7 +109,7 @@ class MainPage extends StatelessWidget {
                           String formattedDate = DateFormat('yyyy-MM-dd').format(timestamp.toDate());
 
                           return Padding(
-                            padding: const EdgeInsets.all(25),
+                            padding: const EdgeInsets.all(20),
                             child: Card(
                               color:  Theme.of(context).colorScheme.secondary.withOpacity(0.5),
                               elevation: 4,
@@ -124,22 +131,38 @@ class MainPage extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(height: 8),
-                                    Text(
-                                      "By: $userEmail",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.4),
-                                        
+                                    Row(
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "$userEmail",
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.4),
+                                                
+                                              ),
+                                            ),
+                                             SizedBox(height: 4),
+                                            Text(
+                                              "$formattedDate",
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.4),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        IconButton(
+                                        onPressed: () {
+                                          likeMessage(post.id); // Assuming 'post' has an 'id' field
+                                        }, 
+                                        icon: Icon(Icons.favorite_outline),
                                       ),
+                                      ],
                                     ),
-                                    SizedBox(height: 4),
-                                    Text(
-                                      "Posted at: $formattedDate",
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.4),
-                                      ),
-                                    ),
+                                   
                                   ],
                                 ),
                               ),
