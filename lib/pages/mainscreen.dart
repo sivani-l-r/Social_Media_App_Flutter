@@ -102,10 +102,10 @@ class MainPage extends StatelessWidget {
                           String formattedDate = DateFormat('yyyy-MM-dd').format(timestamp.toDate());
 
                           return Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(25),
                             child: Card(
                               color:  Theme.of(context).colorScheme.secondary.withOpacity(0.5),
-                              elevation: 6,
+                              elevation: 4,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
@@ -120,7 +120,7 @@ class MainPage extends StatelessWidget {
                                       style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).colorScheme.primary,
+                                        color: Theme.of(context).colorScheme.inversePrimary,
                                       ),
                                     ),
                                     SizedBox(height: 8),
@@ -128,7 +128,7 @@ class MainPage extends StatelessWidget {
                                       "By: $userEmail",
                                       style: TextStyle(
                                         fontSize: 12,
-                                        color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
+                                        color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.4),
                                         
                                       ),
                                     ),
@@ -137,7 +137,7 @@ class MainPage extends StatelessWidget {
                                       "Posted at: $formattedDate",
                                       style: TextStyle(
                                         fontSize: 12,
-                                        color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
+                                        color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.4),
                                       ),
                                     ),
                                   ],

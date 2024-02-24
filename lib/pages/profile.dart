@@ -94,7 +94,7 @@ class ProfilePageDetails extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 24.0,
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: Theme.of(context).colorScheme.inversePrimary,
                 ),
               ),
               SizedBox(height: 10),
@@ -102,7 +102,7 @@ class ProfilePageDetails extends StatelessWidget {
                 email,
                 style: TextStyle(
                   fontSize: 18.0,
-                  color: Theme.of(context).colorScheme.secondary.withOpacity(0.3),
+                  color: Theme.of(context).colorScheme.inversePrimary.withOpacity(0.3),
                 ),
               ),
               
